@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Photo Received</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+
+  <style>
+    :root {
+      --accent: #22c55e;
+      --accent-soft: rgba(34, 197, 94, 0.12);
+      --text: #e5e7eb;
+      --text-muted: #9ca3af;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      background: #020617;
+      font-family: -apple-system, system-ui, sans-serif;
+      color: var(--text);
+    }
+
+    .screen {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .header {
+      padding: 22px 20px 10px;
+      text-align: center;
+    }
+
+    .title {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .subtitle {
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    .card {
+      flex: 1;
+      margin: 16px;
+      border-radius: 24px;
+      border: 2px solid rgba(34,197,94,0.25);
+      background: radial-gradient(circle at top left, var(--accent-soft), #020617);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 24px;
+    }
+
+    .check-icon {
+      font-size: 56px;
+      margin-bottom: 14px;
+    }
+
+    .main-text {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .helper-text {
+      font-size: 14px;
+      color: var(--text-muted);
+      max-width: 280px;
+      margin: 0 auto 18px;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 10px;
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .button {
+      margin-top: 8px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 16px;
+      border-radius: 999px;
+      border: none;
+      background: #22c55e;
+      color: #022c22;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      box-shadow: 0 10px 25px rgba(34,197,94,0.25);
+    }
+
+    .button:active {
+      transform: scale(0.97);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="screen">
+    <div class="header">
+      <div class="title">Thank you!</div>
+      <div class="subtitle">Your document photo has been received.</div>
+    </div>
+
+    <div class="card">
+      <div class="check-icon">✅</div>
+      <div class="main-text">Upload complete</div>
+      <div class="helper-text">
+        If you wish you may close this window.
+        If you need to upload another photo, simply scan the QR code again.
+      </div>
+
+      <!-- Optional: link back to the upload page if it has a stable URL -->
+      <!-- Replace / with your upload page path if you want this -->
+      <!--
+      <a href="/"
+         class="button">
+        Upload another photo
+      </a>
+      -->
+    </div>
+
+    <div class="footer">
+      If this page stays open, it is safe to close this tab.
+    </div>
+  </div>
+</body>
+</html>
