@@ -113,7 +113,11 @@
     </div>
 
     <!-- Previews container -->
-    <div id="previews" class="previews-container"></div>
+    <div id="previews" class="previews-container">
+    </div>
+
+    <div id="error">
+    </div>
 
     <!-- Tap area to open camera (one page at a time) -->
     <div id="tapArea" class="tap-area">
@@ -146,6 +150,7 @@
     const previewsContainer = document.getElementById("previews");
     const uploadBtn = document.getElementById("uploadBtn");
     const pageCountSpan = document.getElementById("pageCount");
+    const errorContainer = document.getElementById("error");
 
     let files = [];          // Array of File objects
     let nextPageNumber = 1;
@@ -237,13 +242,11 @@
           uploadBtn.disabled = false;
         }
       } catch (err) {
-        console.error(err);
         const errorHTML = `
-          <div style="color:black">
+          <div style="color:white">
             Error ${err.message}
           </div>`;
-        previewsContainer.innerHTML += errorHTML;
-        alert("Network error. Check your connection and try again.");
+        errorContainer.innerHTML += errorHTML;
         uploadBtn.textContent = `Upload all ${files.length} pages`;
         uploadBtn.disabled = false;
       }
