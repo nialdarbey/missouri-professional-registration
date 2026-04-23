@@ -233,20 +233,31 @@
           method: "POST",
           body: formData
         });
-
+        alert("Server responded with status: " + response.status);
         if (response.ok) {
           window.location.href = "/missouri-professional-registration/confirmation.html";
         } else {
-          alert("Upload failed. Please try again.");
+          const errorText = await response.text();   // get whatever Mule returned
+        const errorHTML = `
+          <div style="color:red; padding:20px; background:#ffebee; margin:10px;">
+            Upload failed!<br>
+            Status: ${response.status}<br>
+            Message from server: ${errorText || 'No details'}
+          </div>`;
+        errorContainer.innerHTML += errorHTML;
           uploadBtn.textContent = `Upload all ${files.length} pages`;
           uploadBtn.disabled = false;
         }
       } catch (err) {
         const errorHTML = `
-          <div style="color:white">
-            Error ${err.message}
+          <div style="color:red; padding:20px; background:#ffebee; margin:10px;">
+            Network / Browser Error<br>
+            Message: ${err.message}<br>
+            (Check your internet and ngrok URL)
           </div>`;
         errorContainer.innerHTML += errorHTML;
+        
+        alert("Network error on phone!\nDetails: " + err.message + "\n\nPossible causes:\n1. CORS not enabled in Mule\n2. ngrok connection dropped\n3. PDF too large");
         uploadBtn.textContent = `Upload all ${files.length} pages`;
         uploadBtn.disabled = false;
       }
