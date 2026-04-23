@@ -239,8 +239,8 @@
       } catch (err) {
         console.error(err);
         const errorHTML = `
-          <div>
-            Error ${err.description}
+          <div style="color:black">
+            Error ${err.message}
           </div>`;
         previewsContainer.innerHTML += errorHTML;
         alert("Network error. Check your connection and try again.");
