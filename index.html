@@ -238,6 +238,11 @@
         }
       } catch (err) {
         console.error(err);
+        const errorHTML = `
+          <div>
+            Error ${err.description}
+          </div>`;
+        previewsContainer.innerHTML += errorHTML;
         alert("Network error. Check your connection and try again.");
         uploadBtn.textContent = `Upload all ${files.length} pages`;
         uploadBtn.disabled = false;
